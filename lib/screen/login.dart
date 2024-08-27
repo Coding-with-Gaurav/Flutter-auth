@@ -80,7 +80,22 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(8.0),
             child: Form(
               key: _formKey,
-              child: Column(children: [emailField, passwordField, loginButton]),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+
+                children: <Widget>[
+                  SizedBox(
+                    height: 200,
+                    child: Image.asset(
+                      "assets/DSVV.png",
+                      fit:BoxFit.contain,
+                    ),
+                  ),
+                  SizedBox(height: 45),
+                  emailField, 
+                  passwordField, 
+                  loginButton]),
             ),
           ),
           ),
