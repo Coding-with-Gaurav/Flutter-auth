@@ -63,7 +63,10 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: (){},
-        child: Text("Login here"),
+        child: Text("Login here", textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize:20, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
     );
 
@@ -73,10 +76,13 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Container(
             color: Colors.white,
+            child:Padding(
+              padding: const EdgeInsets.all(8.0),
             child: Form(
               key: _formKey,
               child: Column(children: [emailField, passwordField, loginButton]),
             ),
+          ),
           ),
         ),
       ),
