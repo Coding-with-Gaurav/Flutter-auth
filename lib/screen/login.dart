@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget{
-  const LoginScreen({Key? key}) : super(key: key));
+  const LoginScreen({Key? key}) : super(key: key);
 
 @override
 _LoginScreenState createState()=>_LoginScreenState();
@@ -11,7 +11,7 @@ _LoginScreenState createState()=>_LoginScreenState();
 class _LoginScreenState extends State<LoginScreen>{
 
 // form key
-  final FormKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
 //editing controller
 
@@ -20,6 +20,52 @@ final TextEditingController passwordController = new  TextEditingController();
 
   @override
   Widget build(BuildContext context){
-    return Container();
+    // email field
+    final emailField = TextFormField(
+      autofocus: false,
+      controller: emailController,
+      keyboardType: TextInputType.emailAddress,
+
+      onSaved: (value)
+      {
+        emailController.text = value!;
+
+      },
+      textInputAction: TextInputAction.next,
+    );
+
+       // Password field
+    final passwordField = TextFormField(
+      autofocus: false,
+      controller: passwordController,
+
+      onSaved: (value)
+      {
+        passwordController.text = value!;
+
+      },
+      textInputAction: TextInputAction.next,
+    );
+
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            color: Colors.white,
+            child: Form(
+              key: _formKey,
+              child:Column(
+                children: <Widget>[
+                  emailField,
+                  passwordField
+                ]
+                ) ,
+              ),
+          ),
+        ),
+        ),
+    );
   }
 }

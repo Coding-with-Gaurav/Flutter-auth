@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Login/Sign UP',
       theme: ThemeData(
-        primarySwatch: colors.red,
+        primarySwatch: Colors.red,
       ),
       home: LoginScreen(),
     );
